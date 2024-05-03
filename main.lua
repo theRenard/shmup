@@ -56,7 +56,7 @@ function _init()
 
   ship=makespr()
   ship.x=64
-  ship.y=64
+  ship.y=90
   ship.sx=0
   ship.sy=0
   ship.spr=2

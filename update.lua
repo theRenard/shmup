@@ -123,6 +123,9 @@ function update_game()
     return
   end
 
+  --picking
+  picking()
+
   --animate flame
   flamespr = flamespr + 1
   if flamespr > 9 then

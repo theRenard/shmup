@@ -1,10 +1,10 @@
 function spawnwave()
   if wave == 1 then
     placens({
-      {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-      {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-      {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-      {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
     })
   elseif wave == 2 then
     placens({
@@ -32,9 +32,9 @@ end
 
 function placens(lvl)
   for y=1,4 do
-    for x=1,9 do
+    for x=1,10 do
       if lvl[y][x] > 0 then
-        spawnen(lvl[y][x], x*12-6, 8+y*12)
+        spawnen(lvl[y][x], x*12-6, 10+y*12, x*3+y*3)
       end
     end
   end
@@ -59,12 +59,13 @@ function nextwave()
   end
 end
 
-function spawnen(entype, enx, eny)
+function spawnen(entype, enx, eny, enwait)
   local myen = makespr()
-  myen.x = enx or rnd(128)
+  myen.x = enx*2-64 or rnd(128)
   myen.y = eny-66 or rnd(128)
   myen.posx = enx or rnd(128)
   myen.posy = eny or rnd(128)
+  myen.wait = enwait or 0
   myen.mission = 'flyin'
 
   if entype == nil or entype == 1 then
