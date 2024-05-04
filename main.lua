@@ -71,6 +71,7 @@ function _init()
 
   lives=1
   invul=0
+  attackfreq=60
 
   stars={}
   for i=1,100 do

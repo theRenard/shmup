@@ -69,15 +69,17 @@ function update_game()
     doenemy(myen)
 
     -- animate enemy
-    myen.aniframe += 0.4
+    myen.aniframe += myen.anispd
     if flr(myen.aniframe) > #myen.ani then
       myen.aniframe = 1
     end
     myen.spr = myen.ani[flr(myen.aniframe)]
 
     --check if enemy is offscreen
-    if myen.y > 128 then
+    if myen.mission != 'flyin' then
+      if myen.y > 128 or myen.x < -8 or myen.x > 128 then
       del(enemies, myen)
+      end
     end
   end
 

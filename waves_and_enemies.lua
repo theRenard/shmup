@@ -1,5 +1,6 @@
 function spawnwave()
   if wave == 1 then
+    attackfreq = 50
     placens({
       {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
       {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -7,6 +8,7 @@ function spawnwave()
       {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
     })
   elseif wave == 2 then
+    attackfreq = 40
     placens({
       {1, 1, 2, 1, 1, 1, 1, 2, 1, 1},
       {1, 1, 2, 1, 1, 1, 1, 2, 1, 1},
@@ -14,6 +16,7 @@ function spawnwave()
       {1, 1, 2, 1, 1, 1, 1, 2, 1, 1},
     })
   elseif wave == 3 then
+    attackfreq = 30
     placens({
       {3, 1, 2, 1, 3, 3, 1, 2, 1, 3},
       {3, 1, 2, 1, 3, 3, 1, 2, 1, 3},
@@ -21,6 +24,7 @@ function spawnwave()
       {3, 1, 2, 1, 3, 3, 1, 2, 1, 3},
     })
   elseif wave == 4 then
+    attackfreq = 20
     placens({
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 4, 0, 0, 0, 0, 0},
@@ -66,7 +70,9 @@ function spawnen(entype, enx, eny, enwait)
   myen.posx = enx or rnd(128)
   myen.posy = eny or rnd(128)
   myen.wait = enwait or 0
+  myen.anispd = 0.4
   myen.mission = 'flyin'
+  myen.entype = entype
 
   if entype == nil or entype == 1 then
     -- green alien

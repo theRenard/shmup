@@ -38,7 +38,14 @@ function starfield()
  end
 
  function drwmyspr(myspr)
-  spr(myspr.spr,myspr.x,myspr.y,myspr.sprw,myspr.sprh)
+  local sprx=myspr.x
+  local spry=myspr.y
+
+  if myspr.shake > 0 then
+    myspr.shake -= 1
+    sprx += abs(sin(t/2.5))
+  end
+  spr(myspr.spr,sprx,spry,myspr.sprw,myspr.sprh)
  end
 
  function col(a,b)
@@ -202,7 +209,10 @@ function starfield()
   local myspr={}
   myspr.x=0
   myspr.y=0
+  myspr.sx=0
+  myspr.sy=0
   myspr.flash=0
+  myspr.shake=0
   myspr.aniframe=1
   myspr.spr=0
   myspr.sprw=1

@@ -20,9 +20,56 @@ function doenemy(myen)
   elseif myen.mission == 'protec' then
     -- do nothing
   elseif myen.mission == 'attack' then
-    -- move towards the player
-    myen.y += (ship.y - myen.y) / 20
-    myen.x += (ship.x - myen.x) / 20
+
+    if myen.entype == 1 then
+      -- move towards the player
+      myen.sy = 1.7
+      myen.sx = sin(t/45)
+
+      if myen.x < 32 then
+        myen.sx += 1-(myen.x/32)
+      end
+
+      if myen.x > 88 then
+        myen.sx -= (myen.x-88)/32
+      end
+
+    elseif myen.entype == 2 then
+      -- move towards the player
+      myen.sy = 2.5
+      myen.sx = sin(t/45)
+
+      if myen.x < 32 then
+        myen.sx += 1-(myen.x/32)
+      end
+
+      if myen.x > 88 then
+        myen.sx -= (myen.x-88)/32
+      end
+
+    elseif myen.entype == 3 then
+      -- move towards the player
+
+      if myen.sx == 0 then
+        -- move towards the player
+        myen.sy = 1.5
+        if ship.y <= myen.y then
+          myen.sy = 0
+          if ship.x < myen.x then
+            myen.sx = -1
+          else
+            myen.sx = 1
+          end
+        end
+      else
+        -- move towards the player
+      end
+
+    elseif myen.entype == 4 then
+      -- move towards the player
+      myen.sy = 0.5
+    end
+    move(myen)
   end
 end
 
@@ -31,10 +78,22 @@ function picking()
     return
   end
 
-  if t % 60 == 0 then
-    local myen=rnd(enemies)
+  if t % attackfreq == 0 then
+    local maxnum = min(10, #enemies)
+    local myindex = flr(rnd(maxnum))
+    myindex=#enemies-myindex
+
+    local myen=enemies[myindex]
     if myen.mission == 'protec' then
       myen.mission = 'attack'
+      myen.anispd*=4
+      myen.wait = 30
+      myen.shake = 60
     end
   end
+end
+
+function move(obj)
+  obj.x += obj.sx
+  obj.y += obj.sy
 end
