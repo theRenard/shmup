@@ -43,8 +43,17 @@ function starfield()
 
   if myspr.shake > 0 then
     myspr.shake -= 1
-    sprx += abs(sin(t/2.5))
+    --sprx += abs(sin(t/2.5)*1.5)
+    if t % 4 <2 then
+      sprx += 1
+    end
   end
+
+  if myspr.bulmode then
+    sprx -= 2
+    spry -= 2
+  end
+
   spr(myspr.spr,sprx,spry,myspr.sprw,myspr.sprh)
  end
 
@@ -220,4 +229,12 @@ function starfield()
   myspr.colw=8
   myspr.colh=8
   return myspr
+ end
+
+ function animate(entity)
+  entity.aniframe += entity.anispd
+  if flr(entity.aniframe) > #entity.ani then
+    entity.aniframe = 1
+  end
+  entity.spr = entity.ani[flr(entity.aniframe)]
  end

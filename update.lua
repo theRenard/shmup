@@ -26,6 +26,8 @@ function update_game()
       newbul.y = ship.y - 3
       newbul.spr = 16
       newbul.colw = 6
+      newbul.sy = -4
+
       add(buls, newbul)
 
       sfx(0)
@@ -54,12 +56,21 @@ function update_game()
   end
 
   --move the bullets
-  for i = #buls, 1, -1 do
-    local mybul = buls[i]
-    mybul.y = mybul.y - 4
+  for mybul in all(buls) do
+    move(mybul)
 
     if mybul.y < -8 then
       del(buls, mybul)
+    end
+  end
+
+  --move the enemy bullets
+  for mybul in all(ebuls) do
+    move(mybul)
+    animate(mybul)
+
+    if mybul.y > 128 or mybul.x < -8 or mybul.x > 128 or mybul.y < -8 then
+      del(ebuls, mybul)
     end
   end
 
@@ -69,11 +80,8 @@ function update_game()
     doenemy(myen)
 
     -- animate enemy
-    myen.aniframe += myen.anispd
-    if flr(myen.aniframe) > #myen.ani then
-      myen.aniframe = 1
-    end
-    myen.spr = myen.ani[flr(myen.aniframe)]
+    animate(myen)
+
 
     --check if enemy is offscreen
     if myen.mission != 'flyin' then
@@ -95,10 +103,7 @@ function update_game()
         myen.flash = 2
 
         if myen.hp <= 0 then
-          del(enemies, myen)
-          sfx(2)
-          score += 1
-          explode(myen.x + 4, myen.y + 4)
+          killen(myen)
         end
       end
     end
@@ -118,6 +123,19 @@ function update_game()
     invul -= 1
   end
 
+  --collision ship x enemy bullets
+  if invul <= 0 then
+    for mybul in all(ebuls) do
+      if col(mybul, ship) then
+        explode(ship.x + 4, ship.y + 4, true)
+        lives -= 1
+        sfx(1)
+        invul = 60
+        del(ebuls, mybul)
+      end
+    end
+  end
+
   if lives <= 0 then
     mode = "over"
     lockout = t + 30
@@ -126,7 +144,7 @@ function update_game()
   end
 
   --picking
-  picking()
+  picktimer()
 
   --animate flame
   flamespr = flamespr + 1

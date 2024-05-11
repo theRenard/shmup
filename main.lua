@@ -51,7 +51,7 @@ function _init()
 
  function startgame()
   t=0
-  wave=0
+  wave=3
   nextwave()
 
   ship=makespr()
@@ -72,6 +72,7 @@ function _init()
   lives=1
   invul=0
   attackfreq=60
+  nextfire=0
 
   stars={}
   for i=1,100 do
@@ -83,11 +84,9 @@ function _init()
   end
 
   buls={}
-
+  ebuls={}
   enemies={}
-
   parts={}
-
   shwaves={}
 
  end
