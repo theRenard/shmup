@@ -63,7 +63,7 @@ function nextwave()
   end
 end
 
-function spawnen(entype, enx, eny, enwait)
+function spawnen(type, enx, eny, enwait)
   local myen = makespr()
   myen.x = enx*2-64 or rnd(128)
   myen.y = eny-66 or rnd(128)
@@ -72,24 +72,24 @@ function spawnen(entype, enx, eny, enwait)
   myen.wait = enwait or 0
   myen.anispd = 0.4
   myen.mission = 'flyin'
-  myen.entype = entype
+  myen.type = type
 
-  if entype == nil or entype == 1 then
+  if type == nil or type == 1 then
     -- green alien
     myen.spr = 21
     myen.hp = 1
     myen.ani = { 21, 22, 23, 24 }
-  elseif entype == 2 then
+  elseif type == 2 then
     -- red flame guy
     myen.spr = 148
     myen.hp = 2
     myen.ani = { 148, 149 }
-  elseif entype == 3 then
+  elseif type == 3 then
     -- spinning ship
     myen.spr = 184
     myen.hp = 3
     myen.ani = { 184, 185, 186, 187 }
-  elseif entype == 4 then
+  elseif type == 4 then
     -- boss
     myen.spr = 208
     myen.hp = 10

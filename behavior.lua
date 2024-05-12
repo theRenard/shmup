@@ -22,7 +22,7 @@ function doenemy(myen)
     -- do nothing
   elseif myen.mission == 'attack' then
 
-    if myen.entype == 1 then
+    if myen.type == 1 then
       -- move towards the player
       myen.sy = 1.7
       myen.sx = sin(t/45)
@@ -35,7 +35,7 @@ function doenemy(myen)
         myen.sx -= (myen.x-88)/32
       end
 
-    elseif myen.entype == 2 then
+    elseif myen.type == 2 then
       -- move towards the player
       myen.sy = 2.5
       myen.sx = sin(t/45)
@@ -48,7 +48,7 @@ function doenemy(myen)
         myen.sx -= (myen.x-88)/32
       end
 
-    elseif myen.entype == 3 then
+    elseif myen.type == 3 then
       -- move towards the player
 
       if myen.sx == 0 then
@@ -66,16 +66,12 @@ function doenemy(myen)
         -- move towards the player
       end
 
-    elseif myen.entype == 4 then
+    elseif myen.type == 4 then
       -- move towards the player
       myen.sy = 0.35
 
       if myen.y > 110 then
-        myen.sy = 1
-      else
-        if t % 20 == 0 then
-          firespread(myen, 8, 2, rnd())
-        end
+        myen.sy = 3
       end
     end
     move(myen)
@@ -127,12 +123,16 @@ function pickfire()
     return
   end
 
+  log = myen.type
+
   if myen.mission == 'protect' then
-    -- myen.mission = 'attack'
-    -- myen.anispd*=4
-    -- myen.wait = 30
-    -- myen.shake = 60
-    fire(myen, 0, 2)
+    if myen.type == 4 then
+      firespread(myen, 8, 1.3, rnd())
+    elseif myen.type == 2 or myen.type == 3 then
+      aimedfire(myen, 2)
+    else
+      fire(myen, 0, 1.5)
+    end
   end
 end
 

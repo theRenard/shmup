@@ -4,7 +4,7 @@ function fire(myen, ang, spd)
   myebul.x = myen.x+3
   myebul.y = myen.y+4
 
-  if (myen.entype == 4) then
+  if (myen.type == 4) then
     myebul.x = myen.x+7
     myebul.y = myen.y+6
   end
@@ -21,6 +21,7 @@ function fire(myen, ang, spd)
   myen.flash = 3
   sfx(29)
   add(ebuls, myebul)
+  return myebul
 end
 
 function firespread(myen, num, spd, base)
@@ -28,4 +29,12 @@ function firespread(myen, num, spd, base)
   for i=1,num do
     fire(myen, 1/num*i+base, spd)
   end
+end
+
+function aimedfire(myen, spd)
+  local myebul = fire(myen, 0, spd)
+  local ang = atan2((ship.y+4)-myebul.y, (ship.x+4)-myebul.x)
+
+  myebul.sx = sin(ang)*spd
+  myebul.sy = cos(ang)*spd
 end

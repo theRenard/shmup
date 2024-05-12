@@ -2,11 +2,11 @@
 function _init()
   --this will clear the screen
   cls(0)
-
   startscreen()
   blinkt=1
   t=0
   lockout=0
+  shake=0
  end
 
  function _update()
@@ -30,6 +30,8 @@ function _init()
 
  function _draw()
 
+  doshake()
+
   if mode=="game" then
    draw_game()
   elseif mode=="start" then
@@ -51,7 +53,7 @@ function _init()
 
  function startgame()
   t=0
-  wave=3
+  wave=2
   nextwave()
 
   ship=makespr()
@@ -69,7 +71,7 @@ function _init()
 
   score=0
 
-  lives=1
+  lives=4
   invul=0
   attackfreq=60
   nextfire=0
@@ -88,6 +90,8 @@ function _init()
   enemies={}
   parts={}
   shwaves={}
+
+  log=""
 
  end
 

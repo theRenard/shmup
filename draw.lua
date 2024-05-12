@@ -85,6 +85,7 @@ function draw_game()
    end
 
   print("score:"..score,40,1,12)
+  print("log"..log, 1, 120, 7)
 
   for i=1,4 do
    if lives>=i then

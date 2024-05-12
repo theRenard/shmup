@@ -77,7 +77,6 @@ function starfield()
  end
 
  function explode(expx,expy,isblue)
-
   local myp={}
   myp.x=expx
   myp.y=expy
@@ -207,7 +206,6 @@ function starfield()
   myp.age=rnd(2)
   myp.size=1+rnd(4)
   myp.maxage=10+rnd(10)
-  myp.blue=isblue
   myp.spark=true
 
   add(parts,myp)
@@ -237,4 +235,19 @@ function starfield()
     entity.aniframe = 1
   end
   entity.spr = entity.ani[flr(entity.aniframe)]
+ end
+
+ function doshake()
+  local shakex=rnd(shake)-(shake/2)
+  local shakey=rnd(shake)-(shake/2)
+  camera(shakex,shakey)
+
+  if shake>10 then
+    shake*=0.9
+  else
+    shake-=1
+    if shake<1 then
+      shake=0
+    end
+  end
  end
