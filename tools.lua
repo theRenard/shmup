@@ -37,6 +37,14 @@ function starfield()
   return banim[blinkt]
  end
 
+ function drwoutline(myspr)
+    spr(myspr.spr,myspr.x,myspr.y,myspr.sprw,myspr.sprh)
+    spr(myspr.spr,myspr.x-1,myspr.y,myspr.sprw,myspr.sprh)
+    spr(myspr.spr,myspr.x+1,myspr.y,myspr.sprw,myspr.sprh)
+    spr(myspr.spr,myspr.x,myspr.y-1,myspr.sprw,myspr.sprh)
+    spr(myspr.spr,myspr.x,myspr.y+1,myspr.sprw,myspr.sprh)
+ end
+
  function drwmyspr(myspr)
   local sprx=myspr.x
   local spry=myspr.y

@@ -146,10 +146,23 @@ function killen(myen)
   sfx(2)
   score += 1
   explode(myen.x + 4, myen.y + 4)
+  if rnd() < 0.1 then
+    droppickup(myen.x, myen.y)
+  end
 
   if myen.mission =="attack" then
     if rnd(1) < 0.5 then
       pickattack()
     end
   end
+end
+
+function droppickup(px,py)
+  local mypick = makespr()
+  mypick.x = px
+  mypick.y = py
+  mypick.sx = 0
+  mypick.sy = 1
+  mypick.spr = 48
+  add(pickups, mypick)
 end

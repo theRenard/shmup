@@ -16,6 +16,20 @@ function draw_game()
     end
   end
 
+  --drawing pickups
+  for mypick in all(pickups) do
+    local pc=0
+    if t%4<2 then
+     pc=7
+    end
+    for i=1,15 do
+     pal(i,pc)
+    end
+    drwoutline(mypick)
+    pal()
+    drwmyspr(mypick)
+  end
+
   --drawing enemies
   for myen in all(enemies) do
    if myen.flash>0 then
@@ -84,7 +98,7 @@ function draw_game()
     drwmyspr(myebul)
    end
 
-  print("score:"..score,40,1,12)
+  print("score:"..score,40,2,12)
   print("log"..log, 1, 120, 7)
 
   for i=1,4 do
@@ -94,6 +108,9 @@ function draw_game()
     spr(14,i*9-8,1)
    end
   end
+
+  spr(48,110,1)
+  print(cherries,120,2,14)
 
   --print(#buls,5,5,7)
  end

@@ -64,6 +64,24 @@ function update_game()
     end
   end
 
+  --move pickups
+  for mypick in all(pickups) do
+    move(mypick)
+
+    if mypick.y > 128 then
+      del(pickups, mypick)
+    end
+  end
+
+  -- collision ship x pickups
+  for mypick in all(pickups) do
+    if col(mypick, ship) then
+      del(pickups, mypick)
+      sfx(4)
+      cherries += 1
+    end
+  end
+
   --move the enemy bullets
   for mybul in all(ebuls) do
     move(mybul)

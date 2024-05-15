@@ -70,6 +70,7 @@ function _init()
   muzzle=0
 
   score=0
+  cherries=0
 
   lives=4
   invul=0
@@ -90,6 +91,7 @@ function _init()
   enemies={}
   parts={}
   shwaves={}
+  pickups={}
 
   log=""
 
