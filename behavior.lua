@@ -151,6 +151,8 @@ function killen(myen)
   end
 
   if myen.mission =="attack" then
+    local points = myen.points or 100
+    popfloat("+" .. points, myen.x, myen.y)
     if rnd(1) < 0.5 then
       pickattack()
     end
@@ -162,7 +164,25 @@ function droppickup(px,py)
   mypick.x = px
   mypick.y = py
   mypick.sx = 0
-  mypick.sy = 1
+  mypick.sy = 0.75
   mypick.spr = 48
   add(pickups, mypick)
 end
+
+function plogick(mypick)
+  cherries += 1
+  smol_shwave(mypick.x, mypick.y)
+  if cherries >= 10 then
+    cherries = 0
+    if lives < 4 then
+      sfx(20)
+      lives += 1
+      popfloat("1up", mypick.x, mypick.y)
+    else
+      score += 100
+    end
+  else
+    sfx(21)
+  end
+end
+

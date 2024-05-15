@@ -19,6 +19,13 @@ function update_game()
     ship.sy = 2
   end
 
+  if btnp(4) then
+    if cherries > 0 then
+      cherbomb()
+      cherries = 0
+    end
+  end
+
   if btn(5) then
     if bultimer <= 0 then
       local newbul = makespr()
@@ -27,6 +34,7 @@ function update_game()
       newbul.spr = 16
       newbul.colw = 6
       newbul.sy = -4
+      newbul.dmg = 1
 
       add(buls, newbul)
 
@@ -76,9 +84,8 @@ function update_game()
   -- collision ship x pickups
   for mypick in all(pickups) do
     if col(mypick, ship) then
+      plogick(mypick)
       del(pickups, mypick)
-      sfx(4)
-      cherries += 1
     end
   end
 
@@ -116,7 +123,7 @@ function update_game()
         del(buls, mybul)
         smol_shwave(mybul.x + 4, mybul.y + 4)
         smol_spark(myen.x + 4, myen.y + 4)
-        myen.hp -= 1
+        myen.hp -= mybul.dmg
         sfx(3)
         myen.flash = 2
 

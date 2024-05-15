@@ -93,13 +93,27 @@ function draw_game()
    end
   end
 
+  --floats
+  for myfloat in all(floats) do
+    local mycol = 7
+    if t%4<2 then
+     mycol=8
+    end
+    cprint(myfloat.txt,myfloat.x,myfloat.y,mycol)
+    myfloat.y-=1
+    myfloat.age+=1
+    if myfloat.age>30 then
+      del(floats,myfloat)
+    end
+  end
+
   --drawing bullets
   for myebul in all(ebuls) do
     drwmyspr(myebul)
    end
 
-  print("score:"..score,40,2,12)
-  print("log"..log, 1, 120, 7)
+  cprint("score:"..score,64,2,12)
+  -- print("log"..log, 1, 120, 7)
 
   for i=1,4 do
    if lives>=i then
@@ -119,23 +133,23 @@ function draw_game()
   --print(blink())
   cls(1)
 
-  print("my awesome shmup",34,40,12)
-  print("press any key to start",20,80,blink())
+  cprint("my awesome shmup",64,40,12)
+  cprint("press any key to start",64,80,blink())
  end
 
  function draw_over()
   draw_game()
-  print("game over",47,40,8)
-  print("press any key to continue",16,80,blink())
+  cprint("game over",64,40,8)
+  cprint("press any key to continue",64,80,blink())
  end
 
  function draw_win()
   draw_game()
-  print("congratulations",35,40,12)
-  print("press any key to continue",16,80,blink())
+  cprint("congratulations",64,40,12)
+  cprint("press any key to continue",64,80,blink())
  end
 
  function draw_wavetext()
   draw_game()
-  print("wave "..wave,56,40,blink())
+  cprint("wave "..wave,64,40,blink())
  end

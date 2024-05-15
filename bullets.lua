@@ -38,3 +38,23 @@ function aimedfire(myen, spd)
   myebul.sx = sin(ang)*spd
   myebul.sy = cos(ang)*spd
 end
+
+function cherbomb()
+  local spc = 0.25/(cherries*2)
+  for i=0, cherries * 2 do
+    local ang = 0.375 + spc*i
+    local newbul = makespr()
+    newbul.x = ship.x
+    newbul.y = ship.y - 3
+    newbul.spr = 17
+    newbul.dmg = 3
+    newbul.sx = sin(ang)*4
+    newbul.sy = cos(ang)*4
+    add(buls, newbul)
+  end
+  big_shwave(ship.x+4, ship.y+4)
+  shake = 10
+  muzzle = 5
+  sfx(0)
+  invul = 60
+end
