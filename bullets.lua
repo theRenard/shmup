@@ -7,6 +7,9 @@ function fire(myen, ang, spd)
   if (myen.type == 4) then
     myebul.x = myen.x+7
     myebul.y = myen.y+6
+  elseif myen.boss then
+    myebul.x = myen.x+15
+    myebul.y = myen.y+22
   end
 
   myebul.ani = { 32, 33, 34, 33 }
@@ -18,7 +21,9 @@ function fire(myen, ang, spd)
   myebul.colw=6
   myebul.colh=6
   myebul.bulmode = true
-  myen.flash = 3
+  if myen.boss != true then
+    myen.flash = 3
+  end
   sfx(29)
   add(ebuls, myebul)
   return myebul

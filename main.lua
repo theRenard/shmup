@@ -53,7 +53,7 @@ function _init()
 
  function startgame()
   t=0
-  wave=0
+  wave=3
   nextwave()
 
   ship=makespr()

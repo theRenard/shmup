@@ -125,7 +125,11 @@ function update_game()
         smol_spark(myen.x + 4, myen.y + 4)
         myen.hp -= mybul.dmg
         sfx(3)
-        myen.flash = 2
+        if myen.boss then
+          myen.flash = 5
+        else
+          myen.flash = 2
+        end
 
         if myen.hp <= 0 then
           killen(myen)

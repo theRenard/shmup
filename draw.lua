@@ -34,8 +34,16 @@ function draw_game()
   for myen in all(enemies) do
    if myen.flash>0 then
     myen.flash-=1
-    for i=1,15 do
-     pal(i,7)
+    if t%4<2 then
+      pal(3,8)
+      pal(2,8)
+    end
+    if myen.boss then
+      myen.spr = 64
+    else
+      for i=1,15 do
+       pal(i,7)
+    end
     end
    end
    drwmyspr(myen)

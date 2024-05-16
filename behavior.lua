@@ -10,15 +10,38 @@ function doenemy(myen)
     -- move in
     -- basic easing function
     -- x+= (target-x)/speed
-    myen.x += (myen.posx - myen.x) / 8
-    myen.y += (myen.posy - myen.y) / 8
+    local dx = (myen.posx - myen.x) / 8
+    local dy = (myen.posy - myen.y) / 8
+
+    if myen.boss then
+      dy = min(1, dy)
+    end
+    myen.x += dx
+    myen.y += dy
 
     if abs(myen.y-myen.posy) < 0.7 then
       myen.y=myen.posy
       myen.x=myen.posx
-      myen.mission = 'protect'
+      if myen.boss then
+        myen.mission = 'boss1'
+        myen.phbegin = t
+      else
+        myen.mission = 'protect'
+      end
     end
+
   elseif myen.mission == 'protect' then
+
+  elseif myen.mission == 'boss1' then
+    boss1(myen)
+  elseif myen.mission == 'boss2' then
+    boss2(myen)
+  elseif myen.mission == 'boss3' then
+    boss3(myen)
+  elseif myen.mission == 'boss4' then
+    boss4(myen)
+  elseif myen.mission == 'boss4' then
+    boss5(myen)
     -- do nothing
   elseif myen.mission == 'attack' then
 

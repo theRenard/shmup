@@ -27,7 +27,7 @@ function spawnwave()
     attackfreq = 20
     placens({
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 4, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 5, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     })
@@ -98,6 +98,23 @@ function spawnen(type, enx, eny, enwait)
     myen.sprh = 2
     myen.colw = 16
     myen.colh = 16
+  elseif type == 5 then
+    -- boss
+    myen.spr = 68
+    myen.hp = 20
+    myen.ani = { 68, 72, 76, 72 }
+    myen.sprw = 4
+    myen.sprh = 3
+    myen.colw = 32
+    myen.colh = 24
+
+    myen.x = 48
+    myen.posx = 48
+    myen.y = -24
+    myen.posy = 25
+
+    myen.boss = true
+    myen.phbegin = 0
   end
 
   add(enemies, myen)
