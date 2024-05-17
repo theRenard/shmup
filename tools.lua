@@ -62,6 +62,11 @@ function drwmyspr(myspr)
 end
 
 function col(a, b)
+
+  if a.ghost or b.ghost then
+    return false
+  end
+
   local a_left = a.x
   local a_top = a.y
   local a_right = a.x + a.colw - 1
@@ -123,6 +128,54 @@ function explode(expx, expy, isblue)
     myp.size = 1 + rnd(4)
     myp.maxage = 10 + rnd(10)
     myp.blue = isblue
+    myp.spark = true
+
+    add(parts, myp)
+  end
+
+  big_shwave(expx, expy)
+end
+
+function bigexplode(expx, expy)
+  local myp = {}
+  myp.x = expx
+  myp.y = expy
+
+  myp.sx = 0
+  myp.sy = 0
+
+  myp.age = 0
+  myp.size = 30
+  myp.maxage = 0
+
+  add(parts, myp)
+
+  for i = 1, 60 do
+    local myp = {}
+    myp.x = expx
+    myp.y = expy
+
+    myp.sx = rnd() * 12 - 6
+    myp.sy = rnd() * 12 - 6
+
+    myp.age = rnd(2)
+    myp.size = 1 + rnd(8)
+    myp.maxage = 10 + rnd(20)
+
+    add(parts, myp)
+  end
+
+  for i = 1, 100 do
+    local myp = {}
+    myp.x = expx
+    myp.y = expy
+
+    myp.sx = (rnd() - 0.5) * 30
+    myp.sy = (rnd() - 0.5) * 30
+
+    myp.age = rnd(2)
+    myp.size = 1 + rnd(4)
+    myp.maxage = 20 + rnd(20)
     myp.spark = true
 
     add(parts, myp)

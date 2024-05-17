@@ -40,7 +40,7 @@ function doenemy(myen)
     boss3(myen)
   elseif myen.mission == 'boss4' then
     boss4(myen)
-  elseif myen.mission == 'boss4' then
+  elseif myen.mission == 'boss5' then
     boss5(myen)
     -- do nothing
   elseif myen.mission == 'attack' then
@@ -165,6 +165,15 @@ function move(obj)
 end
 
 function killen(myen)
+
+  if myen.boss then
+    myen.mission = 'boss5'
+    myen.phbegin = t
+    myen.ghost = true
+    ebuls = {}
+    return
+  end
+
   del(enemies, myen)
   sfx(2)
   score += 1
