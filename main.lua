@@ -53,7 +53,8 @@ function _init()
 
  function startgame()
   t=0
-  wave=3
+  wave=0
+  lastwave=4
   nextwave()
 
   ship=makespr()
@@ -70,9 +71,9 @@ function _init()
   muzzle=0
 
   score=0
-  cherries=8
+  cherries=0
 
-  lives=3
+  lives=4
   invul=0
   attackfreq=60
   nextfire=0

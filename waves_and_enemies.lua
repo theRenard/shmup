@@ -47,7 +47,7 @@ end
 function nextwave()
   wave += 1
 
-  if wave > 4 then
+  if wave > lastwave then
     mode = "win"
     lockout = t + 30
     music(4)
