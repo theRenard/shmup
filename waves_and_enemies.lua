@@ -1,6 +1,7 @@
 function spawnwave()
   if wave == 1 then
     attackfreq = 50
+    firefreq = 20
     placens({
       {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
       {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -9,6 +10,7 @@ function spawnwave()
     })
   elseif wave == 2 then
     attackfreq = 40
+    firefreq = 20
     placens({
       {1, 1, 2, 1, 1, 1, 1, 2, 1, 1},
       {1, 1, 2, 1, 1, 1, 1, 2, 1, 1},
@@ -17,6 +19,7 @@ function spawnwave()
     })
   elseif wave == 3 then
     attackfreq = 30
+    firefreq = 20
     placens({
       {3, 1, 2, 1, 3, 3, 1, 2, 1, 3},
       {3, 1, 2, 1, 3, 3, 1, 2, 1, 3},
@@ -25,6 +28,7 @@ function spawnwave()
     })
   elseif wave == 4 then
     attackfreq = 20
+    firefreq = 20
     placens({
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 5, 0, 0, 0, 0, 0},
@@ -79,16 +83,19 @@ function spawnen(type, enx, eny, enwait)
     myen.spr = 21
     myen.hp = 1
     myen.ani = { 21, 22, 23, 24 }
+    myen.score = 1
   elseif type == 2 then
     -- red flame guy
     myen.spr = 148
     myen.hp = 2
     myen.ani = { 148, 149 }
+    myen.score = 2
   elseif type == 3 then
     -- spinning ship
     myen.spr = 184
     myen.hp = 3
     myen.ani = { 184, 185, 186, 187 }
+    myen.score = 3
   elseif type == 4 then
     -- boss
     myen.spr = 208
@@ -98,6 +105,7 @@ function spawnen(type, enx, eny, enwait)
     myen.sprh = 2
     myen.colw = 16
     myen.colh = 16
+    myen.score = 10
   elseif type == 5 then
     -- boss
     myen.spr = 68

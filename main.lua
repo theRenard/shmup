@@ -2,11 +2,17 @@
 function _init()
   --this will clear the screen
   cls(0)
+
+  cartdata("lerenard_shmup");
+  highscore=dget(0)
+
   startscreen()
   blinkt=1
   t=0
   lockout=0
   shake=0
+  flash=0
+  version="v1.0"
  end
 
  function _update()
@@ -47,6 +53,7 @@ function _init()
  end
 
  function startscreen()
+  makestars()
   mode="start"
   music(7)
  end
@@ -58,7 +65,7 @@ function _init()
   nextwave()
 
   ship=makespr()
-  ship.x=64
+  ship.x=60
   ship.y=90
   ship.sx=0
   ship.sy=0
@@ -67,25 +74,18 @@ function _init()
   flamespr=5
 
   bultimer=0
+  firefreq=20
 
   muzzle=0
 
   score=0
+  highscore=0
   cherries=0
 
   lives=4
   invul=0
   attackfreq=60
   nextfire=0
-
-  stars={}
-  for i=1,100 do
-   local newstar={}
-   newstar.x=flr(rnd(128))
-   newstar.y=flr(rnd(128))
-   newstar.spd=rnd(1.5)+0.5
-   add(stars,newstar)
-  end
 
   buls={}
   ebuls={}

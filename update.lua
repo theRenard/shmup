@@ -140,6 +140,19 @@ function update_game()
     end
   end
 
+  --collision ebuls x bullets
+  for mybul in all(buls) do
+    if mybul.spr==17 then
+      for myebul in all(ebuls) do
+        if col(mybul, myebul) then
+          del(myebul, ebuls)
+          smol_shwave(mybul.x + 4, mybul.y + 4)
+          del(ebuls, myebul)
+        end
+      end
+    end
+  end
+
   --collision ship x enemies
   if invul <= 0 then
     for myen in all(enemies) do
@@ -149,6 +162,8 @@ function update_game()
         shake = 16
         sfx(1)
         invul = 60
+        ship.x=60
+        ship.y=100
       end
     end
   else
@@ -190,15 +205,21 @@ function update_game()
     muzzle = muzzle - 1
   end
 
-  animatestars()
+  if mode == "wavetext" then
+    animatestars(2)
+  else
+    animatestars()
+  end
 
   --check if wave over
   if mode == "game" and #enemies == 0 then
+    ebuls = {}
     nextwave()
   end
 end
 
 function update_start()
+  animatestars(0.5)
   if btn(4) == false and btn(5) == false then
     btnreleased = true
   end
@@ -222,6 +243,10 @@ function update_over()
 
   if btnreleased then
     if btnp(4) or btnp(5) then
+      if score > highscore then
+        highscore = score
+        dset(0, highscore)
+      end
       startscreen()
       btnreleased = false
     end
@@ -239,6 +264,10 @@ function update_win()
 
   if btnreleased then
     if btnp(4) or btnp(5) then
+      if score > highscore then
+        highscore = score
+        dset(0, highscore)
+      end
       startscreen()
       btnreleased = false
     end

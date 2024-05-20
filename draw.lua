@@ -1,6 +1,12 @@
 
 function draw_game()
-  cls(0)
+  if flash>0 then
+    flash-=1
+    cls(2)
+   else
+    cls(0)
+   end
+
   starfield()
 
   if lives>0 then
@@ -120,7 +126,7 @@ function draw_game()
     drwmyspr(myebul)
    end
 
-  cprint("score:"..score,64,2,12)
+  cprint("score:"..makescore(score),64,2,12)
   -- print("log"..log, 1, 120, 7)
 
   for i=1,4 do
@@ -137,18 +143,38 @@ function draw_game()
   --print(#buls,5,5,7)
  end
 
+ function makescore(val)
+  if val == 0 then
+    return "0"
+  else
+    return val.. "00"
+  end
+ end
+
  function draw_start()
   --print(blink())
-  cls(1)
+  cls(0)
+  starfield()
+  print(version, 1, 1, 1)
 
   cprint("my awesome shmup",64,40,12)
+  if highscore>0 then
+     cprint("highscore: "..makescore(highscore),64,50,7)
+  end
   cprint("press any key to start",64,80,blink())
  end
 
  function draw_over()
   draw_game()
   cprint("game over",64,40,8)
-  cprint("press any key to continue",64,80,blink())
+  cprint("score:"..makescore(score),64,60,12)
+
+  if score>highscore then
+    cprint("new highscore!",64,80,blink())
+  end
+
+  cprint("press any key to continue",64,100,blink())
+
  end
 
  function draw_win()
@@ -159,5 +185,9 @@ function draw_game()
 
  function draw_wavetext()
   draw_game()
-  cprint("wave "..wave,64,40,blink())
+  if wave == lastwave then
+    cprint("final wave",64,40,blink())
+  else
+    cprint("wave "..wave.. " of "..lastwave,64,40,blink())
+  end
  end

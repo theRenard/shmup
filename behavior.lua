@@ -108,7 +108,7 @@ function picktimer()
 
   if t > nextfire then
     pickfire()
-    nextfire = t + 20 + rnd(20)
+    nextfire = t + firefreq + rnd(firefreq)
   end
 
   if t % attackfreq == 0 then
@@ -176,19 +176,22 @@ function killen(myen)
 
   del(enemies, myen)
   sfx(2)
-  score += 1
+  local scoremul = 1
   explode(myen.x + 4, myen.y + 4)
   if rnd() < 0.1 then
     droppickup(myen.x, myen.y)
   end
 
   if myen.mission =="attack" then
-    local points = myen.points or 100
+    scoremul = 2
+    local points = makescore(myen.score * scoremul)
     popfloat("+" .. points, myen.x, myen.y)
     if rnd(1) < 0.5 then
       pickattack()
     end
   end
+
+  score += myen.score * scoremul
 end
 
 function droppickup(px,py)
@@ -205,14 +208,16 @@ function plogick(mypick)
   cherries += 1
   smol_shwave(mypick.x, mypick.y)
   if cherries >= 10 then
-    cherries = 0
     if lives < 4 then
       sfx(20)
       lives += 1
       popfloat("1up", mypick.x, mypick.y)
     else
-      score += 100
+      score += 50
+      popfloat(makescore(100), mypick.x, mypick.y)
+      sfx(21)
     end
+    cherries = 0
   else
     sfx(21)
   end

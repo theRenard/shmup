@@ -145,15 +145,17 @@ function boss5(boss)
     shake=2
   end
 
-  if boss.phbegin + 2 * 30 < t then
-    if t % 5 == 0 then
-      bigexplode(boss.x + 16, boss.y + 20, false)
+  if boss.phbegin + 3 * 30 < t then
+    if t % 4 == 2 then
+      explode(boss.x + 16, boss.y + 20, false)
       sfx(3)
       shake=2
     end
   end
 
-  if boss.phbegin + 4 * 30 < t then
+  if boss.phbegin + 6 * 30 < t then
+    flash = 3
+    bigexplode(boss.x + 16, boss.y + 20, false)
     del(enemies, boss)
     shake = 16
   end

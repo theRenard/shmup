@@ -62,4 +62,5 @@ function cherbomb()
   muzzle = 5
   sfx(0)
   invul = 60
+  flash=3
 end

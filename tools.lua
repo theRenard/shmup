@@ -1,3 +1,14 @@
+function makestars()
+  stars={}
+  for i=1,100 do
+   local newstar={}
+   newstar.x=flr(rnd(128))
+   newstar.y=flr(rnd(128))
+   newstar.spd=rnd(1.5)+0.5
+   add(stars,newstar)
+  end
+end
+
 function starfield()
   for i = 1, #stars do
     local mystar = stars[i]
@@ -13,10 +24,12 @@ function starfield()
   end
 end
 
-function animatestars()
+function animatestars(spd)
+  local spd = spd or 1
+
   for i = 1, #stars do
     local mystar = stars[i]
-    mystar.y = mystar.y + mystar.spd
+    mystar.y = mystar.y + mystar.spd * spd
     if mystar.y > 128 then
       mystar.y = mystar.y - 128
     end
