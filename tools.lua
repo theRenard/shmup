@@ -9,7 +9,7 @@ function makestars()
   end
 end
 
-function starfield()
+function draw_starfield()
   for i = 1, #stars do
     local mystar = stars[i]
     local scol = 6

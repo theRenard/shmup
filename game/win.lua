@@ -1,4 +1,4 @@
-function update_over()
+function update_win()
   if t < lockout then
     return
   end
@@ -19,11 +19,17 @@ function update_over()
   end
 end
 
-function check_game_over()
-  if lives <= 0 then
-    mode = "over"
-    lockout = t + 30
-    music(6)
-    return
+function draw_win()
+  draw_game()
+  cprint("congratulations",64,40,12)
+  cprint("press any key to continue",64,80,blink())
+ end
+
+ function draw_wavetext()
+  draw_game()
+  if wave == lastwave then
+    cprint("final wave",64,40,blink())
+  else
+    cprint("wave "..wave.. " of "..lastwave,64,40,blink())
   end
-end
+ end

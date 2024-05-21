@@ -66,3 +66,11 @@ function nextwave()
     wavetime = 80
   end
 end
+
+function check_next_wave()
+  --check if wave over
+  if mode == "game" and #enemies == 0 then
+    ebuls = {}
+    nextwave()
+  end
+end

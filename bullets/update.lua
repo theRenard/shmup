@@ -17,7 +17,15 @@ function update_bullets()
       del(ebuls, mybul)
     end
   end
+end
 
-
-
+function draw_bullets()
+  --drawing bullets
+  for mybul in all(buls) do
+    drwmyspr(mybul)
+  end
+  --drawing bullets
+  for myebul in all(ebuls) do
+    drwmyspr(myebul)
+  end
 end

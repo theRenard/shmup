@@ -7,140 +7,16 @@ function draw_game()
     cls(0)
    end
 
-  starfield()
-
-  if lives>0 then
-    if invul<=0 then
-     drwmyspr(ship)
-     spr(flamespr,ship.x,ship.y+8)
-    else
-     --invul state
-     if sin(t/5)<0.1 then
-      drwmyspr(ship)
-      spr(flamespr,ship.x,ship.y+8)
-     end
-    end
-  end
-
-  --drawing pickups
-  for mypick in all(pickups) do
-    local pc=0
-    if t%4<2 then
-     pc=7
-    end
-    for i=1,15 do
-     pal(i,pc)
-    end
-    drwoutline(mypick)
-    pal()
-    drwmyspr(mypick)
-  end
-
-  --drawing enemies
-  for myen in all(enemies) do
-   if myen.flash>0 then
-    myen.flash-=1
-    if t%4<2 then
-      pal(3,8)
-      pal(2,8)
-    end
-    if myen.boss then
-      myen.spr = 64
-    else
-      for i=1,15 do
-       pal(i,7)
-    end
-    end
-   end
-   drwmyspr(myen)
-   pal()
-  end
-
-  --drawing bullets
-  for mybul in all(buls) do
-   drwmyspr(mybul)
-  end
-
-  if muzzle>0 then
-   circfill(ship.x+3,ship.y-2,muzzle,7)
-   circfill(ship.x+4,ship.y-2,muzzle,7)
-  end
-
-  --drawing shwaves
-  for mysw in all(shwaves) do
-   circ(mysw.x,mysw.y,mysw.r,mysw.col)
-   mysw.r+=mysw.speed
-   if mysw.r>mysw.tr then
-    del(shwaves,mysw)
-   end
-  end
-
-  --drawing particles
-  for myp in all(parts) do
-   local pc=7
-
-   if myp.blue then
-    pc=page_blue(myp.age)
-   else
-    pc=page_red(myp.age)
-   end
-
-   if myp.spark then
-    pset(myp.x,myp.y,7)
-   else
-    circfill(myp.x,myp.y,myp.size,pc)
-   end
-
-   myp.x+=myp.sx
-   myp.y+=myp.sy
-
-   myp.sx=myp.sx*0.85
-   myp.sy=myp.sy*0.85
-
-   myp.age+=1
-
-   if myp.age>myp.maxage then
-    myp.size-=0.5
-    if myp.size<0 then
-     del(parts,myp)
-    end
-   end
-  end
-
-  --floats
-  for myfloat in all(floats) do
-    local mycol = 7
-    if t%4<2 then
-     mycol=8
-    end
-    cprint(myfloat.txt,myfloat.x,myfloat.y,mycol)
-    myfloat.y-=1
-    myfloat.age+=1
-    if myfloat.age>30 then
-      del(floats,myfloat)
-    end
-  end
-
-  --drawing bullets
-  for myebul in all(ebuls) do
-    drwmyspr(myebul)
-   end
-
-  cprint("score:"..makescore(score),64,2,12)
-  -- print("log"..log, 1, 120, 7)
-
-  for i=1,4 do
-   if lives>=i then
-    spr(13,i*9-8,1)
-   else
-    spr(14,i*9-8,1)
-   end
-  end
-
-  spr(48,110,1)
-  print(cherries,120,2,14)
-
-  --print(#buls,5,5,7)
+  draw_starfield()
+  draw_ship()
+  draw_muzzle()
+  draw_pickups()
+  draw_enemies()
+  draw_shwaves()
+  draw_particles()
+  draw_bullets()
+  draw_floats()
+  draw_hud()
  end
 
  function makescore(val)
@@ -148,46 +24,5 @@ function draw_game()
     return "0"
   else
     return val.. "00"
-  end
- end
-
- function draw_start()
-  --print(blink())
-  cls(0)
-  starfield()
-  print(version, 1, 1, 1)
-
-  cprint("my awesome shmup",64,40,12)
-  if highscore>0 then
-     cprint("highscore: "..makescore(highscore),64,50,7)
-  end
-  cprint("press any key to start",64,80,blink())
- end
-
- function draw_over()
-  draw_game()
-  cprint("game over",64,40,8)
-  cprint("score:"..makescore(score),64,60,12)
-
-  if score>highscore then
-    cprint("new highscore!",64,80,blink())
-  end
-
-  cprint("press any key to continue",64,100,blink())
-
- end
-
- function draw_win()
-  draw_game()
-  cprint("congratulations",64,40,12)
-  cprint("press any key to continue",64,80,blink())
- end
-
- function draw_wavetext()
-  draw_game()
-  if wave == lastwave then
-    cprint("final wave",64,40,blink())
-  else
-    cprint("wave "..wave.. " of "..lastwave,64,40,blink())
   end
  end

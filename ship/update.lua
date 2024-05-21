@@ -74,3 +74,25 @@ function update_ship()
     muzzle = muzzle - 1
   end
 end
+
+function draw_muzzle()
+  if muzzle>0 then
+    circfill(ship.x+3,ship.y-2,muzzle,7)
+    circfill(ship.x+4,ship.y-2,muzzle,7)
+   end
+end
+
+function draw_ship()
+  if lives>0 then
+    if invul<=0 then
+     drwmyspr(ship)
+     spr(flamespr,ship.x,ship.y+8)
+    else
+     --invul state
+     if sin(t/5)<0.1 then
+      drwmyspr(ship)
+      spr(flamespr,ship.x,ship.y+8)
+     end
+    end
+  end
+end
