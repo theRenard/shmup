@@ -1,5 +1,5 @@
 function fire(myen, ang, spd)
-  local myebul = makespr()
+  local myebul = create_entity()
   myebul.spr = 32
   myebul.x = myen.x+3
   myebul.y = myen.y+4
@@ -48,7 +48,7 @@ function cherbomb()
   local spc = 0.25/(cherries*2)
   for i=0, cherries * 2 do
     local ang = 0.375 + spc*i
-    local newbul = makespr()
+    local newbul = create_entity()
     newbul.x = ship.x
     newbul.y = ship.y - 3
     newbul.spr = 17

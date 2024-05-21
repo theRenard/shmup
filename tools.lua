@@ -281,7 +281,7 @@ function smol_spark(sx, sy)
   --end
 end
 
-function makespr()
+function create_entity()
   local myspr = {}
   myspr.x = 0
   myspr.y = 0

@@ -1,11 +1,22 @@
 pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
+#include variables.lua
 #include main.lua
+#include ship/init.lua
+#include ship/update.lua
+#include ship/draw.lua
+#include enemies/draw.lua
+#include enemies/update.lua
+#include enemies/spawn.lua
+#include enemies/waves.lua
+#include enemies/behavior.lua
+#include pickups/update.lua
+#include bullets/update.lua
+#include collisions.lua
 #include tools.lua
 #include update.lua
 #include draw.lua
-#include waves_and_enemies.lua
 #include behavior.lua
 #include bullets.lua
 #include boss.lua
