@@ -306,7 +306,7 @@ function animate(entity)
   entity.spr = entity.ani[flr(entity.aniframe)]
 end
 
-function doshake()
+function draw_shake()
   local shakex = rnd(shake) - shake / 2
   local shakey = rnd(shake) - shake / 2
   camera(shakex, shakey)
