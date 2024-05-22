@@ -3,6 +3,7 @@ version 42
 __lua__
 #include variables.lua
 #include main.lua
+#include stars.lua
 #include ship/init.lua
 #include ship/update.lua
 #include ship/draw.lua

@@ -1,60 +1,60 @@
 function draw_particles()
   --drawing particles
-  for myp in all(parts) do
-    local pc=7
+  for part in all(parts) do
+    local c = 7
 
-    if myp.blue then
-     pc=page_blue(myp.age)
+    if part.blue then
+      c = page_blue(part.age)
     else
-     pc=page_red(myp.age)
+      c = page_red(part.age)
     end
 
-    if myp.spark then
-     pset(myp.x,myp.y,7)
+    if part.spark then
+      pset(part.x, part.y, 7)
     else
-     circfill(myp.x,myp.y,myp.size,pc)
+      circfill(part.x, part.y, part.size, c)
     end
 
-    myp.x+=myp.sx
-    myp.y+=myp.sy
+    part.x += part.sx
+    part.y += part.sy
 
-    myp.sx=myp.sx*0.85
-    myp.sy=myp.sy*0.85
+    part.sx = part.sx * 0.85
+    part.sy = part.sy * 0.85
 
-    myp.age+=1
+    part.age += 1
 
-    if myp.age>myp.maxage then
-     myp.size-=0.5
-     if myp.size<0 then
-      del(parts,myp)
-     end
+    if part.age > part.maxage then
+      part.size -= 0.5
+      if part.size < 0 then
+        del(parts, part)
+      end
     end
-   end
+  end
 end
 
 function draw_shwaves()
   --drawing shwaves
-  for mysw in all(shwaves) do
-    circ(mysw.x,mysw.y,mysw.r,mysw.col)
-    mysw.r+=mysw.speed
-    if mysw.r>mysw.tr then
-     del(shwaves,mysw)
+  for shwave in all(shwaves) do
+    circ(shwave.x, shwave.y, shwave.r, shwave.col)
+    shwave.r += shwave.speed
+    if shwave.r > shwave.tr then
+      del(shwaves, shwave)
     end
-   end
+  end
 end
 
 function draw_floats()
   --floats
-  for myfloat in all(floats) do
-    local mycol = 7
-    if t%4<2 then
-     mycol=8
+  for float in all(floats) do
+    local c = 7
+    if t % 4 < 2 then
+      c = 8
     end
-    cprint(myfloat.txt,myfloat.x,myfloat.y,mycol)
-    myfloat.y-=1
-    myfloat.age+=1
-    if myfloat.age>30 then
-      del(floats,myfloat)
+    cprint(float.txt, float.x, float.y, c)
+    float.y -= 1
+    float.age += 1
+    if float.age > 30 then
+      del(floats, float)
     end
   end
 end

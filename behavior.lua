@@ -43,8 +43,6 @@ function pickfire()
     return
   end
 
-  log = myen.type
-
   if myen.mission == 'protect' then
     if myen.type == 4 then
       firespread(myen, 8, 1.3, rnd())

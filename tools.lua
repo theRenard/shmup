@@ -1,42 +1,14 @@
-function makestars()
-  stars={}
-  for i=1,100 do
-   local newstar={}
-   newstar.x=flr(rnd(128))
-   newstar.y=flr(rnd(128))
-   newstar.spd=rnd(1.5)+0.5
-   add(stars,newstar)
+
+function draw_flash()
+  if flash > 0 then
+    flash -= 1
+    cls(2)
+  else
+    cls(0)
   end
 end
 
-function draw_starfield()
-  for i = 1, #stars do
-    local mystar = stars[i]
-    local scol = 6
-
-    if mystar.spd < 1 then
-      scol = 1
-    elseif mystar.spd < 1.5 then
-      scol = 13
-    end
-
-    pset(mystar.x, mystar.y, scol)
-  end
-end
-
-function animatestars(spd)
-  local spd = spd or 1
-
-  for i = 1, #stars do
-    local mystar = stars[i]
-    mystar.y = mystar.y + mystar.spd * spd
-    if mystar.y > 128 then
-      mystar.y = mystar.y - 128
-    end
-  end
-end
-
-function blink()
+function blink_color()
   local banim = { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 7, 7, 6, 6, 5 }
 
   if blinkt > #banim then
@@ -75,7 +47,6 @@ function drwmyspr(myspr)
 end
 
 function col(a, b)
-
   if a.ghost or b.ghost then
     return false
   end
@@ -331,5 +302,13 @@ function popfloat(fltxt, flx, fly)
 end
 
 function cprint(txt, x, y, col)
-  print(txt, x-#txt*2, y, col)
+  print(txt, x - #txt * 2, y, col)
+end
+
+function makescore(val)
+  if val == 0 then
+    return "0"
+  else
+    return val .. "00"
+  end
 end

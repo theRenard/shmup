@@ -1,3 +1,4 @@
+-- timers
 blinkt=1
 t=0
 lockout=0
@@ -28,6 +29,6 @@ lastwave=4
 lives=4
 attackfreq=60
 
-
+-- info
 log=""
 version="v1.0"

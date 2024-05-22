@@ -14,6 +14,9 @@ function update_enemies()
       end
     end
   end
+
+  picktimer()
+
 end
 
 function draw_enemies()

@@ -13,7 +13,7 @@ function update_start()
 end
 
 function draw_start()
-  --print(blink())
+  --print(blink_color())
   cls(0)
   draw_starfield()
   print(version, 1, 1, 1)
@@ -22,7 +22,7 @@ function draw_start()
   if highscore>0 then
      cprint("highscore: "..makescore(highscore),64,50,7)
   end
-  cprint("press any key to start",64,80,blink())
+  cprint("press any key to start",64,80,blink_color())
  end
 
  function draw_over()
@@ -31,9 +31,9 @@ function draw_start()
   cprint("score:"..makescore(score),64,60,12)
 
   if score>highscore then
-    cprint("new highscore!",64,80,blink())
+    cprint("new highscore!",64,80,blink_color())
   end
 
-  cprint("press any key to continue",64,100,blink())
+  cprint("press any key to continue",64,100,blink_color())
 
  end
