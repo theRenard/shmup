@@ -31,15 +31,12 @@ function spawnen(type, enx, eny, enwait)
     myen.anispd = rnd()
     myen.score = 3
   elseif type == 4 then
-    -- boss
-    myen.spr = 208
-    myen.hp = 10
-    myen.ani = { 208, 210 }
-    myen.sprw = 2
-    myen.sprh = 2
-    myen.colw = 16
-    myen.colh = 16
-    myen.score = 10
+    -- spinning ship
+    myen.spr = 176
+    myen.hp = 3
+    myen.ani = create_numbers(176, 190)
+    myen.anispd = rnd()
+    myen.score = 3
   elseif type == 5 then
     -- boss
     myen.spr = 68
