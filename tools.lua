@@ -312,3 +312,14 @@ function makescore(val)
     return val .. "00"
   end
 end
+
+function create_numbers(first, last)
+  local num = {}
+  for i = first, last do
+    add(num, i)
+  end
+  for i = last, first, -1 do
+    add(num, i)
+  end
+  return num
+end

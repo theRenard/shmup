@@ -1,5 +1,6 @@
 function _init()
   cls(0)
+  reset_game()
   cartdata("lerenard_shmup")
   highscore = dget(0)
   startscreen()
@@ -47,5 +48,6 @@ end
 
 function startgame()
   t = 0
+  reset_game()
   nextwave()
 end

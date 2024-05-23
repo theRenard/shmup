@@ -1,3 +1,12 @@
+function init_ship()
+  ship=create_entity()
+  ship.x=60
+  ship.y=90
+  ship.sx=0
+  ship.sy=0
+  ship.spr=2
+end
+
 function update_ship()
   --controls
   ship.sx = 0
@@ -19,14 +28,14 @@ function update_ship()
     ship.sy = 2
   end
 
-  if btnp(4) then
+  if btnp(5) then
     if cherries > 0 then
       cherbomb()
       cherries = 0
     end
   end
 
-  if btn(5) then
+  if btn(4) then
     if bultimer <= 0 then
       local newbul = create_entity()
       newbul.x = ship.x + 1
@@ -65,8 +74,8 @@ function update_ship()
 
   --animate flame
   flamespr = flamespr + 1
-  if flamespr > 9 then
-    flamespr = 5
+  if flamespr > 8 then
+    flamespr = 4
   end
 
   --animate mullze flash
@@ -96,3 +105,4 @@ function draw_ship()
     end
   end
 end
+

@@ -10,22 +10,25 @@ function spawnen(type, enx, eny, enwait)
   myen.type = type
 
   if type == nil or type == 1 then
-    -- green alien
-    myen.spr = 21
+    -- one eyed alien
+    myen.spr = 128
     myen.hp = 1
-    myen.ani = { 21, 22, 23, 24 }
+    myen.ani = create_numbers(128, 142)
+    myen.anispd = rnd()
     myen.score = 1
   elseif type == 2 then
     -- red flame guy
-    myen.spr = 148
+    myen.spr = 144
     myen.hp = 2
-    myen.ani = { 148, 149 }
+    myen.ani = create_numbers(144, 158)
+    myen.anispd = rnd()
     myen.score = 2
   elseif type == 3 then
     -- spinning ship
-    myen.spr = 184
+    myen.spr = 160
     myen.hp = 3
-    myen.ani = { 184, 185, 186, 187 }
+    myen.ani = create_numbers(160, 174)
+    myen.anispd = rnd()
     myen.score = 3
   elseif type == 4 then
     -- boss

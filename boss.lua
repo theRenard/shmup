@@ -15,7 +15,7 @@ function boss1(boss)
     end
   end
 
-  if boss.phbegin+ 8*30 < t then
+  if boss.phbegin + 8 * 30 < t then
     boss.mission = 'boss4'
     boss.subphase = 1
     boss.phbegin = t
@@ -84,7 +84,6 @@ function boss3(boss)
 end
 
 function boss4(boss)
-
   local spd = 1.5
   if boss.subphase == 1 then
     boss.sx = spd
@@ -142,14 +141,14 @@ function boss5(boss)
   if t % 8 == 0 then
     explode(boss.x + rnd(32), boss.y + rnd(24), false)
     sfx(3)
-    shake=2
+    shake = 2
   end
 
   if boss.phbegin + 3 * 30 < t then
     if t % 4 == 2 then
       explode(boss.x + 16, boss.y + 20, false)
       sfx(3)
-      shake=2
+      shake = 2
     end
   end
 
