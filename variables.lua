@@ -25,7 +25,7 @@ function reset_game()
   score=0
   highscore=0
   cherries=0
-  wave=0
+  wave=3
   lastwave=4
   lives=4
   attackfreq=60

@@ -1,32 +1,32 @@
 function fire(myen, ang, spd)
-  local myebul = create_entity()
-  myebul.spr = 32
-  myebul.x = myen.x+3
-  myebul.y = myen.y+4
+  -- local myebul = create_entity()
+  -- myebul.spr = 32
+  -- myebul.x = myen.x+3
+  -- myebul.y = myen.y+4
 
-  if (myen.type == 4) then
-    myebul.x = myen.x+7
-    myebul.y = myen.y+6
-  elseif myen.boss then
-    myebul.x = myen.x+15
-    myebul.y = myen.y+22
-  end
+  -- if (myen.type == 4) then
+  --   myebul.x = myen.x+7
+  --   myebul.y = myen.y+6
+  -- elseif myen.boss then
+  --   myebul.x = myen.x+15
+  --   myebul.y = myen.y+22
+  -- end
 
-  myebul.ani = { 32, 33, 34, 33 }
-  myebul.anispd = 0.4
+  -- myebul.ani = { 32, 33, 34, 33 }
+  -- myebul.anispd = 0.4
 
-  myebul.sx = sin(ang)*spd
-  myebul.sy = cos(ang)*spd
+  -- myebul.sx = sin(ang)*spd
+  -- myebul.sy = cos(ang)*spd
 
-  myebul.colw=6
-  myebul.colh=6
-  myebul.bulmode = true
-  if myen.boss != true then
-    myen.flash = 3
-  end
-  sfx(29)
-  add(ebuls, myebul)
-  return myebul
+  -- myebul.colw=6
+  -- myebul.colh=6
+  -- myebul.bulmode = true
+  -- if myen.boss != true then
+  --   myen.flash = 3
+  -- end
+  -- sfx(29)
+  -- add(ebuls, myebul)
+  -- return myebul
 end
 
 function firespread(myen, num, spd, base)

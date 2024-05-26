@@ -10,7 +10,7 @@ function draw_particles()
     end
 
     if part.spark then
-      pset(part.x, part.y, 7)
+      pset(part.x, part.y, 8)
     else
       circfill(part.x, part.y, part.size, c)
     end

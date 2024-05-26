@@ -41,15 +41,16 @@ function spawnen(type, enx, eny, enwait)
     -- boss
     myen.spr = 68
     myen.hp = 100
-    myen.ani = { 68, 72, 76, 72 }
+    myen.ani = { 68, 68, 72 }
+    myen.anispd = 0.1
     myen.sprw = 4
-    myen.sprh = 3
+    myen.sprh = 4
     myen.colw = 32
     myen.colh = 24
 
     myen.x = 48
     myen.posx = 48
-    myen.y = -24
+    myen.y = -32
     myen.posy = 25
 
     myen.boss = true
