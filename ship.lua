@@ -36,9 +36,9 @@ function update_ship()
   end
 
   if btn(4) then
-    if bultimer <= 0 then
+    if bultimer <= 0 and can_fire() then
       local newbul = create_entity()
-      newbul.x = ship.x + 1
+      newbul.x = ship.x
       newbul.y = ship.y - 3
       newbul.spr = 16
       newbul.colw = 6
@@ -50,8 +50,16 @@ function update_ship()
       sfx(0)
       muzzle = 5
       bultimer = 4
+      decrease_energy_bar()
     end
   end
+
+  if btn(4) then
+    is_firing = true
+  else
+    is_firing = false
+  end
+
   bultimer -= 1
 
   --moving the ship
@@ -87,7 +95,6 @@ end
 function draw_muzzle()
   if muzzle>0 then
     circfill(ship.x+3,ship.y-2,muzzle,7)
-    circfill(ship.x+4,ship.y-2,muzzle,7)
    end
 end
 

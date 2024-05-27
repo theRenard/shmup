@@ -11,6 +11,8 @@ function reset_game()
   muzzle=0
   invul=0
   nextfire=0
+  energy_bar=80
+  is_firing=false
 
   -- Entities
   buls={}
