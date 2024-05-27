@@ -14,7 +14,7 @@ function spawnen(type, enx, eny, enwait)
     myen.spr = 128
     myen.hp = 1
     myen.ani = create_numbers(128, 142)
-    myen.anispd = rnd()
+    myen.anispd = 1 -- 1 + rnd(0.5)
     myen.score = 1
   elseif type == 2 then
     -- red flame guy
@@ -38,6 +38,27 @@ function spawnen(type, enx, eny, enwait)
     myen.anispd = rnd()
     myen.score = 3
   elseif type == 5 then
+    -- spinning ship
+    myen.spr = 92
+    myen.hp = 3
+    myen.ani = create_numbers(192, 206)
+    myen.anispd = 0.5 + rnd(0.2)
+    myen.score = 3
+  elseif type == 6 then
+    -- spinning ship
+    myen.spr = 208
+    myen.hp = 3
+    myen.ani = create_numbers(208, 222)
+    myen.anispd = 0.5 + rnd(0.2)
+    myen.score = 3
+  elseif type == 7 then
+    -- spinning ship
+    myen.spr = 224
+    myen.hp = 3
+    myen.ani = create_numbers(224, 238)
+    myen.anispd = 0.5 + rnd(0.2)
+    myen.score = 3
+  elseif type == 8 then
     -- boss
     myen.spr = 68
     myen.hp = 100
