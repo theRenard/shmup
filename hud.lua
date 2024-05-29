@@ -7,10 +7,13 @@ function draw_hud()
     end
   end
 
-  cprint("score:"..makescore(score),64,2,12)
+  cprint("score:"..makescore(score),64,3,9)
 
-  spr(11,110,1)
-  print(cherries,120,2,14)
+  palt(0, false)
+  palt(3, true)
+  spr(12,110,1)
+  palt()
+  print(powerups,121,3,9)
 
   print(log, 1, 120, 7)
 end

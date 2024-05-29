@@ -26,7 +26,7 @@ function reset_game()
   -- Gameplay
   score=0
   highscore=0
-  cherries=0
+  powerups=5
   wave=0
   lastwave=10
   lives=4

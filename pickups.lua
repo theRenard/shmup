@@ -16,11 +16,18 @@ function draw_pickups()
     if t%4<2 then
      pc=7
     end
+    palt(0, false)
+    palt(3, true)
     for i=1,15 do
      pal(i,pc)
     end
     drwoutline(mypick)
     pal()
+    palt()
+
+    palt(0, false)
+    palt(3, true)
     drwmyspr(mypick)
+    palt()
   end
 end

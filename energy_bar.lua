@@ -27,16 +27,20 @@ function can_fire()
 end
 
 function draw_energy_bar()
-  local color = 12
+  local color = 10
   local x0 = 24
   local y0 = 120
   local x1 = energy_bar + 24
-  local y1 = 121
+  local y1 = 120
 
-  if energy_bar < 20 then
+  if energy_bar < 40 then
+    color = 9
+  end
+
+  if energy_bar < 10 then
     color = 8
   end
 
+  rectfill(x0, y0, 104, y1, 1)
   rectfill(x0, y0, x1, y1, color)
-  rect(x0-1, y0-1, 105, y1+1, 7)
 end

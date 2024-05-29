@@ -95,14 +95,15 @@ function droppickup(px,py)
   mypick.y = py
   mypick.sx = 0
   mypick.sy = 0.75
-  mypick.spr = 11
+  mypick.spr = 12
   add(pickups, mypick)
 end
 
 function plogick(mypick)
-  cherries += 1
+  powerups += 1
   smol_shwave(mypick.x, mypick.y)
-  if cherries >= 10 then
+  fill_energy_bar()
+  if powerups >= 10 then
     if lives < 4 then
       sfx(20)
       lives += 1
@@ -112,7 +113,7 @@ function plogick(mypick)
       popfloat(makescore(100), mypick.x, mypick.y)
       sfx(21)
     end
-    cherries = 0
+    powerups = 0
   else
     sfx(21)
   end

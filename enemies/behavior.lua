@@ -45,7 +45,7 @@ function behavior(myen)
     -- do nothing
   elseif myen.mission == 'attack' then
 
-    if myen.type == 1 then
+    if myen.type == 1 or myen.type == 5 then
       -- move towards the player
       myen.sy = 1.7
       myen.sx = sin(t/45)
@@ -58,7 +58,7 @@ function behavior(myen)
         myen.sx -= (myen.x-88)/32
       end
 
-    elseif myen.type == 2 then
+    elseif myen.type == 2 or myen.type == 6 then
       -- move towards the player
       myen.sy = 2.5
       myen.sx = sin(t/45)
@@ -71,7 +71,7 @@ function behavior(myen)
         myen.sx -= (myen.x-88)/32
       end
 
-    elseif myen.type == 3 then
+    elseif myen.type == 3 or myen.type == 7 then
       -- move towards the player
 
       if myen.sx == 0 then

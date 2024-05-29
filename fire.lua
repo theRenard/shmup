@@ -45,8 +45,8 @@ function aimedfire(myen, spd)
 end
 
 function cherbomb()
-  local spc = 0.25/(cherries*2)
-  for i=0, cherries * 2 do
+  local spc = 0.25/(powerups*2)
+  for i=0, powerups * 2 do
     local ang = 0.375 + spc*i
     local newbul = create_entity()
     newbul.x = ship.x

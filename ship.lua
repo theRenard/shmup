@@ -29,9 +29,9 @@ function update_ship()
   end
 
   if btnp(5) then
-    if cherries > 0 then
+    if powerups > 0 then
       cherbomb()
-      cherries = 0
+      powerups = 0
     end
   end
 
@@ -111,5 +111,16 @@ function draw_ship()
      end
     end
   end
+end
+
+function ship_die()
+  explode(ship.x + 4, ship.y + 4, true)
+  shake=16
+  sfx(1)
+  invul=60
+  -- ship.x=60
+  -- ship.y=100
+  lives=lives-1
+  fill_energy_bar()
 end
 

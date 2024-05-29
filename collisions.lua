@@ -3,13 +3,7 @@ function update_collisions()
   if invul <= 0 then
     for myen in all(enemies) do
       if col(myen, ship) then
-        explode(ship.x + 4, ship.y + 4, true)
-        lives -= 1
-        shake = 16
-        sfx(1)
-        invul = 60
-        ship.x = 60
-        ship.y = 100
+        ship_die()
       end
     end
   else
@@ -52,11 +46,7 @@ function update_collisions()
   if invul <= 0 then
     for mybul in all(ebuls) do
       if col(mybul, ship) then
-        explode(ship.x + 4, ship.y + 4, true)
-        lives -= 1
-        shake = 16
-        sfx(1)
-        invul = 60
+        ship_die()
         del(ebuls, mybul)
       end
     end
