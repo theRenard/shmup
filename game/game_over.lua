@@ -27,3 +27,16 @@ function check_game_over()
     return
   end
 end
+
+function draw_over()
+  draw_game()
+  cprint("game over",64,40,8)
+  cprint("score:"..makescore(score),64,60,12)
+
+  if score>highscore then
+    cprint("new highscore!",64,80,blink_color())
+  end
+
+  cprint("press any key to continue",64,100,blink_color())
+
+ end

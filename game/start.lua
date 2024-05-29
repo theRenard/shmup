@@ -12,28 +12,37 @@ function update_start()
   end
 end
 
+intro_eye_x = 74
+intro_eye_left = false
+
 function draw_start()
   --print(blink_color())
   cls(0)
   draw_starfield()
   print(version, 1, 1, 1)
 
-  cprint("my awesome shmup",64,40,12)
+  spr(20, 32, 40 , 8, 2)
+  -- move line every 30 frames
+  if t % 7 == 0 and rnd() >= 0.5 then
+    -- increase until 78 then decrease back to 74
+    if intro_eye_left then
+      intro_eye_x -= 1
+    else
+      intro_eye_x += 1
+    end
+    if intro_eye_x == 77 then
+      intro_eye_left = true
+    end
+    if intro_eye_x == 74 then
+      intro_eye_left = false
+    end
+  end
+  line(intro_eye_x, 45, intro_eye_x, 51, 0)
+
+  cprint("press any key to start",64,73,blink_color())
+
   if highscore>0 then
-     cprint("highscore: "..makescore(highscore),64,50,7)
+     cprint("highscore: "..makescore(highscore),64,100,9)
   end
-  cprint("press any key to start",64,80,blink_color())
  end
 
- function draw_over()
-  draw_game()
-  cprint("game over",64,40,8)
-  cprint("score:"..makescore(score),64,60,12)
-
-  if score>highscore then
-    cprint("new highscore!",64,80,blink_color())
-  end
-
-  cprint("press any key to continue",64,100,blink_color())
-
- end
