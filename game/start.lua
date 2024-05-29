@@ -21,7 +21,7 @@ function draw_start()
   draw_starfield()
   print(version, 1, 1, 1)
 
-  spr(20, 32, 40 , 8, 2)
+  spr(20, 32, 40 - 20 , 8, 2)
   -- move line every 30 frames
   if t % 7 == 0 and rnd() >= 0.5 then
     -- increase until 78 then decrease back to 74
@@ -37,12 +37,21 @@ function draw_start()
       intro_eye_left = false
     end
   end
-  line(intro_eye_x, 45, intro_eye_x, 51, 0)
+  line(intro_eye_x, 25, intro_eye_x, 31, 0)
 
-  cprint("press any key to start",64,73,blink_color())
+
+  palt(0, false)
+  palt(3, true)
+  spr(12,60,45)
+  palt()
+  cprint('1x = +1 smart bomb',64,60,9)
+  cprint('10x = +1 life',64,70,9)
+  -- cprint('10x = +10.000 pts',64,80,9)
+
+  cprint("press any key to start",64,100 ,blink_color())
 
   if highscore>0 then
-     cprint("highscore: "..makescore(highscore),64,100,9)
+     cprint("highscore: "..makescore(highscore),64,115,9)
   end
  end
 
