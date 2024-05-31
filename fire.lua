@@ -18,8 +18,8 @@ function fire(myen, ang, spd)
   myebul.sx = sin(ang)*spd
   myebul.sy = cos(ang)*spd
 
-  myebul.colw=6
-  myebul.colh=6
+  myebul.colw=5
+  myebul.colh=5
   myebul.bulmode = true
   if myen.boss != true then
     myen.flash = 3

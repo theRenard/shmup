@@ -29,9 +29,9 @@ end
 function draw_energy_bar()
   local color = 10
   local x0 = 24
-  local y0 = 120
+  local y0 = 124
   local x1 = energy_bar + 24
-  local y1 = 120
+  local y1 = 124
 
   if energy_bar < 40 then
     color = 9
@@ -41,6 +41,7 @@ function draw_energy_bar()
     color = 8
   end
 
+  -- main bar
   rectfill(x0, y0, 104, y1, 1)
   rectfill(x0, y0, x1, y1, color)
 end

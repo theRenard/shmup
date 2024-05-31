@@ -22,10 +22,12 @@ end
 function draw_bullets()
   --drawing bullets
   for mybul in all(buls) do
+    -- rectfill(mybul.x,mybul.y, mybul.x + mybul.colw - 1, mybul.y + mybul.colh - 1,8)
     drwmyspr(mybul)
   end
   --drawing bullets
   for myebul in all(ebuls) do
+    -- rectfill(myebul.x,myebul.y, myebul.x + myebul.colw - 1, myebul.y + myebul.colh - 1,8)
     drwmyspr(myebul)
   end
 end

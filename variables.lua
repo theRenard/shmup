@@ -27,7 +27,7 @@ function reset_game()
   score=0
   highscore=0
   powerups=5
-  wave=0
+  wave=9
   lastwave=10
   lives=4
   attackfreq=60

@@ -95,7 +95,7 @@ function droppickup(px,py)
   mypick.y = py
   mypick.sx = 0
   mypick.sy = 0.75
-  mypick.spr = 12
+  mypick.spr = 50
   add(pickups, mypick)
 end
 

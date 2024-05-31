@@ -1,11 +1,10 @@
 ## todo
 
 1. better damage and behaviour based on sprite
-2. title
-3. better music
-4. 6. boss should drop powerups
-5. 14 waves
-6. 1 boss
+2. better music
+3. 6. boss should drop powerups
+4. 14 waves
+5. 1 boss
 
 wave 1
   red

@@ -10,7 +10,7 @@ function boss1(boss)
   end
 
   if t % 30 > 1 then
-    if t % 3 == 0 then
+    if t % 10 == 0 then
       fire(boss, 0, 1)
     end
   end

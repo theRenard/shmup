@@ -1,9 +1,9 @@
 function draw_hud()
   for i=1,4 do
     if lives>=i then
-      spr(9,i*9-8,1)
+      spr(35,i*9-8,1)
     else
-      spr(10,i*9-8,1)
+      spr(36,i*9-8,1)
     end
   end
 
@@ -11,7 +11,7 @@ function draw_hud()
 
   palt(0, false)
   palt(3, true)
-  spr(12,110,1)
+  spr(50,110,1)
   palt()
   print(powerups,121,3,9)
 

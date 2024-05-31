@@ -12,6 +12,7 @@ function update_ship()
   ship.sx = 0
   ship.sy = 0
   ship.spr = 2
+  ship.colw = 7
 
   if btn(0) then
     ship.sx = -2
@@ -38,10 +39,10 @@ function update_ship()
   if btn(4) then
     if bultimer <= 0 and can_fire() then
       local newbul = create_entity()
-      newbul.x = ship.x
+      newbul.x = ship.x + 1
       newbul.y = ship.y - 3
       newbul.spr = 16
-      newbul.colw = 6
+      newbul.colw = 5
       newbul.sy = -4
       newbul.dmg = 1
 
@@ -101,12 +102,13 @@ end
 function draw_ship()
   if lives>0 then
     if invul<=0 then
+    --  rectfill(ship.x,ship.y, ship.x + ship.colw - 1, ship.y + ship.colh - 1,8)
      drwmyspr(ship)
      spr(flamespr,ship.x,ship.y+8)
     else
-     --invul state
-     if sin(t/5)<0.1 then
-      drwmyspr(ship)
+      --invul state
+      if sin(t/5)<0.1 then
+        drwmyspr(ship)
       spr(flamespr,ship.x,ship.y+8)
      end
     end
