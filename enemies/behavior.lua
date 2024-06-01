@@ -47,7 +47,7 @@ function behavior(myen)
 
     if myen.type == 1 or myen.type == 5 then
       -- move towards the player
-      myen.sy = 1.7
+      myen.sy = myen.speed
       myen.sx = sin(t/45)
 
       if myen.x < 32 then
@@ -60,7 +60,7 @@ function behavior(myen)
 
     elseif myen.type == 2 or myen.type == 6 then
       -- move towards the player
-      myen.sy = 2.5
+      myen.sy = myen.speed
       myen.sx = sin(t/45)
 
       if myen.x < 32 then
@@ -76,7 +76,7 @@ function behavior(myen)
 
       if myen.sx == 0 then
         -- move towards the player
-        myen.sy = 1.5
+        myen.sy =  myen.speed
         if ship.y <= myen.y then
           myen.sy = 0
           if ship.x < myen.x then
@@ -91,7 +91,7 @@ function behavior(myen)
 
     elseif myen.type == 4 then
       -- move towards the player
-      myen.sy = 0.35
+      myen.sy = myen.speed
 
       if myen.y > 110 then
         myen.sy = 3

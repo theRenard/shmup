@@ -1,3 +1,13 @@
+local hp_high = 6
+local hp_mid = 4
+local hp_low = 2
+local sp_high = 3
+local sp_mid = 2
+local sp_low = 1
+local score_high = 3
+local score_mid = 2
+local score_low = 1
+
 function spawnen(type, enx, eny, enwait)
   local myen = create_entity()
   myen.x = enx*2-64 or rnd(128)
@@ -5,57 +15,78 @@ function spawnen(type, enx, eny, enwait)
   myen.posx = enx or rnd(128)
   myen.posy = eny or rnd(128)
   myen.wait = enwait or 0
-  myen.anispd = 0.4
   myen.mission = 'flyin'
   myen.type = type
-  myen.anispd = 0.5 + rnd(0.2)
+  myen.speed = 1
+  myen.anispd = 0.1 + rnd(0.2)
 
+  -- red alien
   if type == nil or type == 1 then
-    -- red alien
     myen.spr = 128
-    myen.hp = 1
+    myen.spr_ref = 128
     myen.ani = create_numbers(128, 142)
-    myen.score = 1
-  elseif type == 2 then
+    myen.hp = hp_low
+    myen.score = score_low
+    myen.speed = sp_mid
+
     -- green alien
+  elseif type == 2 then
     myen.spr = 144
-    myen.hp = 2
+    myen.spr_ref = 144
     myen.ani = create_numbers(144, 158)
-    myen.score = 2
+    myen.hp = hp_high
+    myen.score = score_mid
+    myen.speed = sp_low
+
+  -- squid
   elseif type == 3 then
-    -- pink
     myen.spr = 160
-    myen.hp = 3
+    myen.spr_ref = 160
     myen.ani = create_numbers(160, 174)
-    myen.score = 3
+    myen.hp = hp_low
+    myen.score = score_mid
+    myen.speed = sp_low
+
+  -- invisible
   elseif type == 4 then
-    -- blue
     myen.spr = 176
-    myen.hp = 3
+    myen.spr_ref = 176
     myen.ani = create_numbers(176, 190)
-    myen.score = 4
-  elseif type == 5 then
+    myen.hp = hp_mid
+    myen.score = score_high
+    myen.speed = sp_mid
+    myen.invul = true
+
     -- metal
-    myen.spr = 92
-    myen.hp = 4
+  elseif type == 5 then
+    myen.spr = 192
+    myen.spr_ref = 192
     myen.ani = create_numbers(192, 206)
-    myen.score = 5
-  elseif type == 6 then
+    myen.hp = hp_high
+    myen.score = score_high
+    myen.invul = true
+
     -- star
+  elseif type == 6 then
     myen.spr = 208
-    myen.hp = 4
+    myen.spr_ref = 208
     myen.ani = create_numbers(208, 222)
-    myen.score = 6
+    myen.hp = hp_mid
+    myen.score = score_mid
+
+    -- egg
   elseif type == 7 then
-    -- claws
     myen.spr = 224
-    myen.hp = 4
+    myen.spr_ref = 224
     myen.ani = create_numbers(224, 238)
-    myen.score = 7
+    myen.hp = hp_high
+    myen.score = score_high
+    myen.invul = true
+
+  -- boss
   elseif type == 8 then
-    -- boss
     myen.spr = 68
-    myen.hp = 100
+    myen.hp = 150
     myen.ani = { 68, 68, 72 }
     myen.anispd = 0.1
     myen.sprw = 4

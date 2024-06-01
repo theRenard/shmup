@@ -16,9 +16,10 @@ function boss1(boss)
   end
 
   if boss.phbegin + 8 * 30 < t then
-    boss.mission = 'boss4'
+    boss.mission = 'boss2'
     boss.subphase = 1
     boss.phbegin = t
+    droppickup(boss.x, boss.y)
   end
   move(boss)
 end
@@ -49,6 +50,7 @@ function boss2(boss)
       boss.mission = 'boss3'
       boss.phbegin = t
       boss.sy = 0
+      droppickup(boss.x, boss.y)
     end
   end
 
@@ -80,6 +82,7 @@ function boss3(boss)
     boss.subphase = 1
     boss.subphase = 1
     boss.phbegin = t
+    droppickup(boss.x, boss.y)
   end
 end
 
@@ -109,6 +112,7 @@ function boss4(boss)
       boss.mission = 'boss1'
       boss.phbegin = t
       boss.sy = 0
+      droppickup(boss.x, boss.y)
     end
   end
 

@@ -1,28 +1,49 @@
 ## todo
 
-1. better damage and behaviour based on sprite
-2. better music
-3. 6. boss should drop powerups
-4. 14 waves
-5. 1 boss
+4. better music
 
-wave 1
-  red
-wave 2
-  bigger red
-wave 3
-  max red
-wave 4
-  
-wave 5
-wave 6
-wave 7
-wave 8
-wave 9
-wave 10
-wave 11
-wave 12
-wave 13
-wave 14
-wave 15
-wave 16
+-- red circle monster
+  -- score: 1
+  -- hp: normal
+  -- speed: normal
+  -- attack: falling
+  -- special: always vulnerable
+
+
+-- green mouth monster
+  -- score: 2
+  -- hp: high
+  -- speed: low
+
+-- squid monster
+  -- score: 2
+  -- hp: medium
+  -- speed: low
+  -- attack: horizontal
+
+-- invisible monster
+  -- score: 3
+  -- hp: normal
+  -- speed: normal
+  -- attack: falling
+  -- special: invulnerable when invisible sprite 1-5
+
+-- metal monster
+  -- score: 3
+  -- hp: very high
+  -- speed: normal
+  -- attack: falling
+  -- special: invulnerable when invisible sprite 1-5
+
+-- star monster
+  -- score: 2
+  -- hp: normal
+  -- speed: high
+  -- attack: falling
+
+---egg monster
+  -- score: 3
+   -- hp: very high
+  -- speed: normal
+  -- attack: falling
+  -- invulnerable when sprite 1-5

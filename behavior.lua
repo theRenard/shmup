@@ -44,7 +44,7 @@ function pickfire()
   end
 
   if myen.mission == 'protect' then
-    if myen.type == 4 then
+    if myen.type == 6 then
       firespread(myen, 8, 1.3, rnd())
     elseif myen.type == 2 or myen.type == 3 then
       aimedfire(myen, 2)
@@ -73,7 +73,7 @@ function killen(myen)
   sfx(2)
   local scoremul = 1
   explode(myen.x + 4, myen.y + 4)
-  if rnd() < 0.1 then
+  if rnd() < pickupFreq then
     droppickup(myen.x, myen.y)
   end
 

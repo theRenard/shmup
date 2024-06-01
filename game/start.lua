@@ -1,6 +1,6 @@
 function update_start()
   animatestars(0.5)
-  if btn(4) == false and btn(5) == false then
+  if btnp(🅾️) == false and btnp(❎) == false then
     btnreleased = true
   end
 
@@ -42,7 +42,7 @@ function draw_start()
 
   -- logo
   if t % 30 == 0 then
-    logo = 21 + flr(rnd(3))
+    logo = 21 + flr(rnd(2))
   end
   spr(logo,60,115)
 

@@ -25,10 +25,17 @@ function update_collisions()
         del(buls, mybul)
         smol_shwave(mybul.x + 4, mybul.y + 4)
         smol_spark(myen.x + 4, myen.y + 4)
+        sfx(3)
+
+        if myen.invul then
+          if myen.spr <= myen.spr_ref + 5 then
+            return
+          end
+        end
+
         if myen.mission != 'flyin' then
           myen.hp -= mybul.dmg
         end
-        sfx(3)
         if myen.boss then
           myen.flash = 5
         else

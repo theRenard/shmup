@@ -10,7 +10,7 @@ function update_energy_bar()
     if energy_bar <= 40 then
       energy_bar += 2
     else
-      energy_bar += 1
+      energy_bar += 3
     end
     if energy_bar > 80 then
       energy_bar = 80
@@ -31,7 +31,7 @@ function draw_energy_bar()
   local x0 = 24
   local y0 = 124
   local x1 = energy_bar + 24
-  local y1 = 124
+  local y1 = 125
 
   if energy_bar < 40 then
     color = 9

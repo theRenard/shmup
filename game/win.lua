@@ -3,7 +3,7 @@ function update_win()
     return
   end
 
-  if btn(4) == false and btn(5) == false then
+  if btnp(🅾️) == false and btnp(❎) == false then
     btnreleased = true
   end
 

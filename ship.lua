@@ -14,29 +14,29 @@ function update_ship()
   ship.spr = 2
   ship.colw = 7
 
-  if btn(0) then
+  if btn(⬅️) then
     ship.sx = -2
     ship.spr = 1
   end
-  if btn(1) then
+  if btn(➡️) then
     ship.sx = 2
     ship.spr = 3
   end
-  if btn(2) then
+  if btn(⬆️) then
     ship.sy = -2
   end
-  if btn(3) then
+  if btn(⬇️) then
     ship.sy = 2
   end
 
-  if btnp(5) then
+  if btnp(❎) then
     if powerups > 0 then
       cherbomb()
       powerups = 0
     end
   end
 
-  if btn(4) then
+  if btn(🅾️) then
     if bultimer <= 0 and can_fire() then
       local newbul = create_entity()
       newbul.x = ship.x + 1
@@ -55,7 +55,7 @@ function update_ship()
     end
   end
 
-  if btn(4) then
+  if btn(❎) then
     is_firing = true
   else
     is_firing = false

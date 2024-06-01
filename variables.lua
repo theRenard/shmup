@@ -26,11 +26,12 @@ function reset_game()
   -- Gameplay
   score=0
   highscore=0
-  powerups=5
-  wave=9
-  lastwave=10
+  powerups=0
+  wave=0 -- 1-indexed
+  lastwave=20
   lives=4
   attackfreq=60
+  pickupFreq=0.1
 
   -- info
   log=""
