@@ -1,6 +1,6 @@
 function update_start()
   animatestars(0.5)
-  if btnp(🅾️) == false and btnp(❎) == false then
+  if btn(4) == false and btnp(❎) == false then
     btnreleased = true
   end
 

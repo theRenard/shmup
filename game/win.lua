@@ -3,7 +3,7 @@ function update_win()
     return
   end
 
-  if btnp(🅾️) == false and btnp(❎) == false then
+  if btn(4) == false and btnp(❎) == false then
     btnreleased = true
   end
 
@@ -21,15 +21,7 @@ end
 
 function draw_win()
   draw_game()
-  cprint("congratulations",64,40,12)
+  cprint("congratulations!",64,40,12)
   cprint("press any key to continue",64,80,blink_color())
  end
 
- function draw_wavetext()
-  draw_game()
-  if wave == lastwave then
-    cprint("final wave",64,40,blink_color())
-  else
-    cprint("wave "..wave.. " of "..lastwave,64,40,blink_color())
-  end
- end

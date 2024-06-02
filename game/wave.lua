@@ -7,3 +7,11 @@ function update_wavetext()
   end
 end
 
+function draw_wavetext()
+  draw_game()
+  if wave == lastwave then
+    cprint("final wave",64,40,blink_color())
+  else
+    cprint("wave "..wave.. " of "..lastwave,64,40,blink_color())
+  end
+ end

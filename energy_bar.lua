@@ -7,10 +7,10 @@ end
 
 function update_energy_bar()
   if t % 5 == 0 and not is_firing then
-    if energy_bar <= 40 then
-      energy_bar += 2
-    else
+    if energy_bar <= 30 then
       energy_bar += 3
+    else
+      energy_bar += 0.5
     end
     if energy_bar > 80 then
       energy_bar = 80
@@ -33,11 +33,11 @@ function draw_energy_bar()
   local x1 = energy_bar + 24
   local y1 = 125
 
-  if energy_bar < 40 then
+  if energy_bar < 50 then
     color = 9
   end
 
-  if energy_bar < 10 then
+  if energy_bar < 30 then
     color = 8
   end
 

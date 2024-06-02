@@ -55,7 +55,7 @@ function update_ship()
     end
   end
 
-  if btn(❎) then
+  if btn(🅾️) then
     is_firing = true
   else
     is_firing = false

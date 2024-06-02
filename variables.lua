@@ -28,7 +28,7 @@ function reset_game()
   highscore=0
   powerups=0
   wave=0 -- 1-indexed
-  lastwave=20
+  lastwave=15
   lives=4
   attackfreq=60
   pickupFreq=0.1

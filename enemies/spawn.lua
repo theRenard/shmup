@@ -1,5 +1,5 @@
-local hp_high = 6
-local hp_mid = 4
+local hp_high = 4
+local hp_mid = 3
 local hp_low = 2
 local sp_high = 3
 local sp_mid = 2
@@ -54,7 +54,7 @@ function spawnen(type, enx, eny, enwait)
     myen.ani = create_numbers(176, 190)
     myen.hp = hp_mid
     myen.score = score_high
-    myen.speed = sp_mid
+    myen.speed = sp_low
     myen.invul = true
 
     -- metal

@@ -3,7 +3,7 @@ function update_over()
     return
   end
 
-  if btnp(🅾️) == false and btnp(❎) == false then
+  if btn(4) == false and btnp(❎) == false then
     btnreleased = true
   end
 
