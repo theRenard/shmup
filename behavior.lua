@@ -103,16 +103,10 @@ function plogick(mypick)
   powerups += 1
   smol_shwave(mypick.x, mypick.y)
   fill_energy_bar()
-  if powerups >= 10 then
-    if lives < 4 then
-      sfx(20)
-      lives += 1
-      popfloat("1up", mypick.x, mypick.y)
-    else
-      score += 50
-      popfloat(makescore(100), mypick.x, mypick.y)
-      sfx(21)
-    end
+  if powerups >= 15 then
+    score += 200
+    popfloat(makescore(200), mypick.x, mypick.y)
+    sfx(21)
     powerups = 0
   else
     sfx(21)

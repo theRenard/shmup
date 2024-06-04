@@ -51,10 +51,9 @@ function draw_start()
   spr(50,60,45)
   palt()
   cprint('1x = +1 smart bomb',64,60,9)
-  cprint('10x = +1 life',64,70,9)
   -- cprint('10x = +10.000 pts',64,80,9)
 
-  cprint("press any key to start",64,90 ,blink_color())
+  cprint("press any key to start",64,80 ,blink_color())
 
   if highscore>0 then
      cprint("highscore: "..makescore(highscore),64,100,9)

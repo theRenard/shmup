@@ -86,7 +86,7 @@ function spawnen(type, enx, eny, enwait)
   -- boss
   elseif type == 8 then
     myen.spr = 68
-    myen.hp = 150
+    myen.hp = 100
     myen.ani = { 68, 68, 72 }
     myen.anispd = 0.1
     myen.sprw = 4

@@ -120,8 +120,8 @@ function ship_die()
   shake=16
   sfx(1)
   invul=60
-  -- ship.x=60
-  -- ship.y=100
+  ship.x=60
+  ship.y=100
   lives=lives-1
   fill_energy_bar()
 end

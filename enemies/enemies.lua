@@ -22,9 +22,9 @@ end
 function draw_enemies()
   --drawing enemies
   for myen in all(enemies) do
-    if myen.flash > 0 and not myen.boss then
+    if myen.flash > 0 then
       myen.flash -= 1
-      if t % 4 < 2 then
+      if t % 4 < 2 and not myen.boss then
         pal(3, 8)
         pal(2, 8)
       end
@@ -46,8 +46,18 @@ function draw_enemies()
 end
 
 function draw_boss(myen)
-  // add cercle beneath the boss
-  circfill(myen.x + 16, myen.y + 16, 14, 7)
+  -- add cercle beneath the boss
+  local circle_col = 7
+  if myen.hp < 66 then
+    circle_col = 9
+  end
+  if myen.hp < 33 then
+    circle_col = 2
+  end
+  if myen.flash > 0 then
+    circle_col = 8
+  end
+  circfill(myen.x + 16, myen.y + 16, 14, circle_col)
   draw_eye(myen)
   drwmyspr(myen)
 end
