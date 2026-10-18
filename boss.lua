@@ -118,13 +118,13 @@ function boss4(boss)
 
   if t % 12 == 0 then
     if boss.subphase == 1 then
-      fire(boss, 0, 2, 0)
+      fire(boss, 0, 2)
     elseif boss.subphase == 2 then
-      fire(boss, 0.25, 2, 0)
+      fire(boss, 0.25, 2)
     elseif boss.subphase == 3 then
-      fire(boss, 0.5, 2, 0)
+      fire(boss, 0.5, 2)
     elseif boss.subphase == 4 then
-      fire(boss, 0.75, 2, 0)
+      fire(boss, 0.75, 2)
     end
   end
 
@@ -158,7 +158,7 @@ function boss5(boss)
 
   if boss.phbegin + 6 * 30 < t then
     flash = 3
-    bigexplode(boss.x + 16, boss.y + 20, false)
+    bigexplode(boss.x + 16, boss.y + 20)
     del(enemies, boss)
     shake = 16
   end
